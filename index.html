@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB2</title>
+</head>
+<body>
+      <script>
+      //q1
+
+       function getvalue(){
+           let value=0;
+           setTimeout(function(){
+               value=10;
+           },1000);
+           return value;
+       }
+
+      console.log(getvalue());
+
+      function getvalue2(callback){
+          let value=0;
+          setTimeout(function(){
+              value=100;
+              callback(value);
+          },2000);
+      }
+
+      getvalue2(function (value){
+          console.log(value);
+      })
+
+      function getvalue3(){
+          let value=0;
+          return new Promise(function (resolve, reject){
+            setTimeout(function(){
+               value=1000;
+                   resolve(value);
+            },1000)
+          });
+      }
+
+      getvalue3().then(
+          function(val){
+              console.log(val);
+          }
+      )
+
+      //promise chaining
+
+      function multiply(value){
+          return new Promise((resolve, reject)=>{
+              setTimeout(function (){
+                  resolve(value*100);
+              },1000);
+          });
+      }
+
+      getvalue3().then(function (value){
+          return multiply(value);
+      }).then(function (value){
+          console.log(value);
+      });
+
+      //q4
+
+      async function printvalue(){
+          let value = await getvalue3();
+          value=await multiply(value);
+          return value;
+      }
+
+      printvalue().then(function (value){
+          console.log(value);
+      })
+
+      //q2
+
+      function Vehicle(type){
+              this.type=type;
+              Vehicle.VehicleCOUNT++;
+      }
+
+      Vehicle.prototype.print=function (){
+          console.log("Vehicle is driving");
+      }
+
+      Vehicle.VehicleCOUNT=0;//static variable
+
+      let car = new Vehicle('Car');
+      console.log(Vehicle.VehicleCOUNT);
+      console.log(car.type);
+      car.print();
+
+      function Car(type){
+          //this.type=type;
+         Vehicle.call(this,type);//calling parent constructor
+      };
+
+      Car.prototype=Object.create(Vehicle.prototype);
+      Car.prototype.constructor=Car;
+
+      Car.prototype.balanceWheels=function (){
+          console.log("Wheels are balanced");
+      }
+
+      let car2 = new Car("BigCar");
+      console.log(Vehicle.VehicleCOUNT);
+      console.log(car2.type);
+     // console.log(car2.constructor);
+      car2.print();
+      car2.balanceWheels();
+
+      </script>
+
+</body>
+</html>
