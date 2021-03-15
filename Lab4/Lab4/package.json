@@ -1,0 +1,20 @@
+{
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "lab4",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathursan-007/AFLab.git"
+  },
+  "author": "Mathursan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mathursan-007/AFLab/issues"
+  },
+  "homepage": "https://github.com/Mathursan-007/AFLab#readme"
+}
