@@ -1,0 +1,37 @@
+use sliit
+db.sliit.insert({"name": "John",
+                 "dateOfBirth": "1990-01-01T00:00:00Z",
+                  "subjects": ["Application frameworks", "Computer architecture"]}
+                 )
+
+db.sliit.find({})
+
+db.sliit.find({name:"John"})
+
+db.sliit.find({_id:"60451d4e4ab39d4ef029c158"})
+
+db.sliit.updateOne({name:"John"},{$set:{subjects:["Application frameworks", "Computer architecture","Distributed Computing"]}})
+
+db.sliit.insert({
+"name": "Jane",
+"dateOfBirth": "1990-02-15T00:00:00Z",
+"subjects": ["Application frameworks", "Computer architecture"],
+"isActive": false
+})
+
+db.sliit.insert({
+"name": "Smith",
+"dateOfBirth": "1990-01-15T00:00:00Z",
+"subjects": ["Application frameworks", "Computer architecture"],
+"isActive": true
+}
+)
+
+db.sliit.find({name:"Smith"}&&{isActive:true})
+
+db.sliit.updateOne({name:"Smith"}&&{isActive:true},{$set:{isActive:false}})
+
+db.sliit.deleteOne({name:"Smith"})
+
+
+
