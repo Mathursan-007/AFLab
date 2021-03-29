@@ -1,0 +1,15 @@
+POST http://localhost:3000/posts
+Content-Type:application/json
+
+{
+ "name":"john",
+ "description":"hi"
+}
+
+###
+GET http://localhost:3000/posts/4747425e-3694-46bd-9583-e77ae4e5581b
+Accept: application/json
+
+###
+GET http://localhost:3000/home
+
