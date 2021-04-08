@@ -1,31 +1,44 @@
+const uuid = require('uuid');
 
-const uuid = require('uuid')
-//universal unique identifier(uuid)
+const {save,getById,getAll,removeById,update}=require('../dal/posts.dao');
 
-var posts = new Map();
-
-let createPost =function({name,description}){
-
-    const post= {
+async function createPost({name,description}){
+    let post={
         name,
         description,
-        id: uuid.v4(),
-        date: new Date()
+        id:uuid.v4(),
+        postedDate:new Date()
     }
-        posts.set(post.id,post);
-    return post;
+    console.log(post);
+    return await save(post);
 }
 
-let getPosts = function (){
-    return [...posts.values()];
+async function getPosts(){
+    return await getAll();
 }
 
-let getPost =function (id){
-   return posts.get(id);
+async function getPost(id){
+    return await getById(id);
+}
+
+async function removePost(id){
+    return await removeById(id)
+}
+
+async function updatePost(id,{name,description}){
+    let post={
+        id,
+        name,
+        description,
+        postedDate:new Date()
+    }
+    return await update(post);
 }
 
 module.exports={
     createPost,
     getPosts,
-    getPost
-};
+    getPost,
+    removePost,
+    updatePost
+}

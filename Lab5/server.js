@@ -2,12 +2,11 @@ const Koa =require('koa');
 
 const HomeRoutes = require('./routes/home.router');
 const PostRoutes = require('./routes/post.routes');
-
 const bodyParser = require('koa-bodyparser')
 
 //koa app
 const app = new Koa();
-
+const serve = require('koa-static');
 //content-type:application/json
 
 app.use(bodyParser());//registering body parser
@@ -17,6 +16,8 @@ app.use(HomeRoutes.routes())
 
  app.use(PostRoutes.routes())
      .use(PostRoutes.allowedMethods());
+
+app.use(serve('public/'));
 
 app.use(ctx=>{           //prefix:about
     ctx.body ='Hello World';
