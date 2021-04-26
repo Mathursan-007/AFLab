@@ -1,4 +1,5 @@
 const Router = require('@koa/router');
+
 const {getPost,createPost,getPosts,removePost,updatePost}  =require('../api/posts.api')
 
 
@@ -16,7 +17,7 @@ router.post('/', async ctx => {
     let post = ctx.request.body;
     post = await createPost(post);
     ctx.response.status = 201;
-    ctx.body = post;
+    console.log(post);
 });
 
 router.get('/:id', async ctx => { //id is a placeholder

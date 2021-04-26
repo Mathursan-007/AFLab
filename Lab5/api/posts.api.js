@@ -9,7 +9,7 @@ async function createPost({name,description}){
         id:uuid.v4(),
         postedDate:new Date()
     }
-    console.log(post);
+
     return await save(post);
 }
 

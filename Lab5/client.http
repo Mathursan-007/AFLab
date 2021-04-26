@@ -1,31 +1,31 @@
-GET http://localhost:3000/posts
+GET http://localhost:3001/posts
 Accept: application/json
 
 ###
-POST http://localhost:3000/posts
+POST http://localhost:3001/posts
 Content-Type:application/json
 
 {
- "name":"johns",
- "description":"hi"
+ "name":"john",
+ "description":"hihi"
 }
 
 ###
-GET http://localhost:3000/posts/b2ab3517-2250-44ce-85d0-e3d2286c0914
+GET http://localhost:3000/posts/e062bd74-a9a7-4b3a-a16c-713551d73518
 Accept: application/json
 
 
 ###
-PUT http://localhost:3000/posts/b2ab3517-2250-44ce-85d0-e3d2286c0914
+PUT http://localhost:3000/posts/e062bd74-a9a7-4b3a-a16c-713551d73518
 Content-Type:application/json
 
 {
-  "name":"johnny",
+  "name":"arosh",
   "description":"hello"
 }
 
 ###
-DELETE http://localhost:3000/posts/2b71b96a-413a-494f-b19a-9b3aa4c5a90d
+DELETE http://localhost:3001/posts/2
 
 ###
 HEAD http://localhost:3000/posts

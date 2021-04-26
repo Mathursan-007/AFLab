@@ -4,10 +4,12 @@ const HomeRoutes = require('./routes/home.router');
 const PostRoutes = require('./routes/post.routes');
 const bodyParser = require('koa-bodyparser')
 
+
 //koa app
 const app = new Koa();
 const serve = require('koa-static');
 //content-type:application/json
+
 
 app.use(bodyParser());//registering body parser
 
@@ -30,6 +32,4 @@ app.listen(3000,error=>{
     }
     console.log("App running on port 3000");
 });
-
-
 
